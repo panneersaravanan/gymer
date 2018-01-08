@@ -6,32 +6,35 @@ import {
   Text,
   TextInput,
   View,
-  Button
+  Button,
+  TouchableOpacity
 } from 'react-native';
+import FBSDK, {LoginManager} from 'react-native-fbsdk';
 
 export default class App extends Component<{}> {
+
+  _fbAuth() {
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result){
+      if(result.isCancelled) {
+        alert('login cancelled');
+      }
+      else {
+        alert('login success: ' + result.grantPermissions);
+      }
+    }, function(error) {
+        alert ('Error ' + error)
+    }
+  )
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Gymer
-        </Text>
-        <TextInput
-          style={{height: 40, width: 100}}
-          placeholder="Enter your ZIP"
-        />
-        <Button
-          onPress={() => {}}
-          title="Trainer"
-          color="#48BBEC"
-          style={styles.Button}
-          />
-          <Button
-            onPress={() => {}}
-            title="Trainee"
-            color="#841584"
-            style={styles.Button}
-            />
+        <TouchableOpacity onPress={this._fbAuth}>
+          <Text>
+            Login with Facebook
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

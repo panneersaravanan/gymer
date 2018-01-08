@@ -33,5 +33,3 @@ local.properties
 # node.js
 #
 node_modules/
-android/
-ios/
