@@ -10,7 +10,9 @@
     "bootstrap-v4-dev": "^4.0.0-alpha.6",
     "react": "16.0.0",
     "react-native": "0.51.0",
-    "react-native-fbsdk": "^0.7.0"
+    "react-native-fbsdk": "^0.7.0",
+    "react-native-meteor": "^1.0.3",
+    "react-navigation": "^1.0.0-beta.23"
   },
   "devDependencies": {
     "babel-jest": "22.0.4",
